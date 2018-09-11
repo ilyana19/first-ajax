@@ -24,4 +24,15 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log("Hey the request finished!");
     });
   });
+
+  $("#step7 button").click(function(){
+    $.ajax({
+      url: "http://first-ajax-api.herokuapp.com/count",
+      method: "GET"
+    }).done(function(responseData) {
+      console.log("Great Success!");
+      var response = $("<p>").html(responseData);
+      $("#step7").append(response);
+    });
+  });
 });
